@@ -54,19 +54,51 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
+	var _KanbanBoard = __webpack_require__(184);
+
+	var _KanbanBoard2 = _interopRequireDefault(_KanbanBoard);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var cardList = [{
+	  id: 1,
+	  title: 'Read the book about ReactJS',
+	  description: 'Read the book about ReactJS v. 14+',
+	  status: 'in-progress',
+	  tasks: []
+	}, {
+	  id: 2,
+	  title: 'Write the app on ReactJS',
+	  description: 'Kanban board',
+	  status: 'todo',
+	  tasks: [{
+	    id: 1,
+	    name: 'Learn basic sintaxis of React',
+	    done: true
+	  }, {
+	    id: 2,
+	    name: 'Write wireframe of app',
+	    done: false
+	  }, {
+	    id: 3,
+	    name: 'Finish the app',
+	    done: false
+	  }]
+	}, {
+	  id: 3,
+	  title: 'Installation of environment for React ',
+	  description: 'webpack, utilites, styles etc',
+	  status: 'done',
+	  tasks: [{
+	    id: 1,
+	    name: 'Use ready-to-use template',
+	    done: true
+	  }]
+	}];
 
 	var app = document.getElementById('app');
 
-	_reactDom2.default.render(_react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	        'p',
-	        null,
-	        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi beatae commodi consequatur ducimus earum eos esse impedit, iusto labore libero maiores molestias nam odio optio, porro praesentium quaerat quis tempora?'
-	    )
-	), app);
+	_reactDom2.default.render(_react2.default.createElement(_KanbanBoard2.default, { cards: cardList }), app);
 
 /***/ }),
 /* 1 */
@@ -22200,6 +22232,269 @@
 
 	module.exports = ReactDOMInvalidARIAHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ }),
+/* 184 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _KanbanList = __webpack_require__(185);
+
+	var _KanbanList2 = _interopRequireDefault(_KanbanList);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var KanbanBoard = function (_React$Component) {
+	  _inherits(KanbanBoard, _React$Component);
+
+	  function KanbanBoard() {
+	    _classCallCheck(this, KanbanBoard);
+
+	    return _possibleConstructorReturn(this, (KanbanBoard.__proto__ || Object.getPrototypeOf(KanbanBoard)).apply(this, arguments));
+	  }
+
+	  _createClass(KanbanBoard, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'app' },
+	        _react2.default.createElement(_KanbanList2.default, {
+	          id: 'todo',
+	          title: 'To Do',
+	          cards: this.props.cards.filter(function (card) {
+	            return card.status === 'todo';
+	          }) }),
+	        _react2.default.createElement(_KanbanList2.default, {
+	          id: 'in-progress',
+	          title: 'In-progress',
+	          cards: this.props.cards.filter(function (card) {
+	            return card.status === 'in-progress';
+	          }) }),
+	        _react2.default.createElement(_KanbanList2.default, {
+	          id: 'done',
+	          title: 'Done',
+	          cards: this.props.cards.filter(function (card) {
+	            return card.status === 'done';
+	          }) })
+	      );
+	    }
+	  }]);
+
+	  return KanbanBoard;
+	}(_react2.default.Component);
+
+	exports.default = KanbanBoard;
+
+/***/ }),
+/* 185 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _KanbanCard = __webpack_require__(186);
+
+	var _KanbanCard2 = _interopRequireDefault(_KanbanCard);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var KanbanList = function (_React$Component) {
+	  _inherits(KanbanList, _React$Component);
+
+	  function KanbanList() {
+	    _classCallCheck(this, KanbanList);
+
+	    return _possibleConstructorReturn(this, (KanbanList.__proto__ || Object.getPrototypeOf(KanbanList)).apply(this, arguments));
+	  }
+
+	  _createClass(KanbanList, [{
+	    key: 'render',
+	    value: function render() {
+	      var cards = this.props.cards.map(function (card, index) {
+	        return _react2.default.createElement(_KanbanCard2.default, {
+	          id: card.id,
+	          title: card.title,
+	          description: card.description,
+	          tasks: card.tasks,
+	          key: index
+	        });
+	      });
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'list' },
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          this.props.title
+	        ),
+	        cards
+	      );
+	    }
+	  }]);
+
+	  return KanbanList;
+	}(_react2.default.Component);
+
+	exports.default = KanbanList;
+
+/***/ }),
+/* 186 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _KanbanCheckList = __webpack_require__(187);
+
+	var _KanbanCheckList2 = _interopRequireDefault(_KanbanCheckList);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var KanbanCard = function (_React$Component) {
+	  _inherits(KanbanCard, _React$Component);
+
+	  function KanbanCard() {
+	    _classCallCheck(this, KanbanCard);
+
+	    return _possibleConstructorReturn(this, (KanbanCard.__proto__ || Object.getPrototypeOf(KanbanCard)).apply(this, arguments));
+	  }
+
+	  _createClass(KanbanCard, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'card' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'card__title' },
+	          this.props.title
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'card__details' },
+	          this.props.description,
+	          _react2.default.createElement(_KanbanCheckList2.default, { cardId: this.props.id, tasks: this.props.tasks })
+	        )
+	      );
+	    }
+	  }]);
+
+	  return KanbanCard;
+	}(_react2.default.Component);
+
+	exports.default = KanbanCard;
+
+/***/ }),
+/* 187 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var KanbanCheckList = function (_React$Component) {
+	  _inherits(KanbanCheckList, _React$Component);
+
+	  function KanbanCheckList() {
+	    _classCallCheck(this, KanbanCheckList);
+
+	    return _possibleConstructorReturn(this, (KanbanCheckList.__proto__ || Object.getPrototypeOf(KanbanCheckList)).apply(this, arguments));
+	  }
+
+	  _createClass(KanbanCheckList, [{
+	    key: "render",
+	    value: function render() {
+	      console.log(this.props);
+	      var tasks = this.props.tasks.map(function (task, index) {
+	        return _react2.default.createElement(
+	          "li",
+	          { className: "checklist__task", key: index },
+	          _react2.default.createElement("input", { type: "checkbox", defaultChecked: task.done }),
+	          task.name,
+	          _react2.default.createElement("a", { href: "#", className: "checklist__task--remove" })
+	        );
+	      });
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "checklist" },
+	        _react2.default.createElement(
+	          "ul",
+	          null,
+	          tasks
+	        )
+	      );
+	    }
+	  }]);
+
+	  return KanbanCheckList;
+	}(_react2.default.Component);
+
+	exports.default = KanbanCheckList;
 
 /***/ })
 /******/ ]);
