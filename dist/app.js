@@ -22404,50 +22404,84 @@
 	  function KanbanCard() {
 	    _classCallCheck(this, KanbanCard);
 
-	    var _this = _possibleConstructorReturn(this, (KanbanCard.__proto__ || Object.getPrototypeOf(KanbanCard)).call(this));
+	    var _this = _possibleConstructorReturn(this, (KanbanCard.__proto__ || Object.getPrototypeOf(KanbanCard)).apply(this, arguments));
 
 	    console.log('KanbanCard::constructor()');
+
+	    _this.state = {
+	      showDetails: false
+	    };
 	    return _this;
 	  }
+	  //getDefaultProps(){
+	  //  console.log('KanbanCard::getDefaultProps()');
+	  //}
+	  //getInitialState(){
+	  //  console.log('KanbanCard::getInitialState()');
+	  //}
+	  //componentWillMount(){
+	  //  console.log('KanbanCard::componentWillMount()');
+	  //}
+
 
 	  _createClass(KanbanCard, [{
-	    key: 'getDefaultProps',
-	    value: function getDefaultProps() {
-	      console.log('KanbanCard::getDefaultProps()');
-	    }
-	  }, {
-	    key: 'getInitialState',
-	    value: function getInitialState() {
-	      console.log('KanbanCard::getInitialState()');
-	    }
-	  }, {
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
-	      console.log('KanbanCard::componentWillMount()');
-	    }
-	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      console.log('KanbanCard::componentDidMount()');
+	      // setState - изменение состояния
+	      //this.setState({
+	      //  showDetails: true
+	      //});
+	    }
+
+	    //setState
+
+	  }, {
+	    key: 'shouldComponentUpdate',
+	    value: function shouldComponentUpdate() {
+	      console.log('KanbanCard::shouldComponentUpdate()');
+	      return true;
+	    }
+	  }, {
+	    key: 'componentWillUpdate',
+	    value: function componentWillUpdate() {
+	      console.log('KanbanCard::componentWillUpdate()');
+	    }
+	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {
+	      console.log('KanbanCard::componentDidUpdate()');
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+
 	      console.log('KanbanCard::render()');
+
+	      var cardDetails = void 0;
+
+	      if (this.state.showDetails) {
+	        cardDetails = _react2.default.createElement(
+	          'div',
+	          { className: 'card__details' },
+	          this.props.description,
+	          _react2.default.createElement(_KanbanCheckList2.default, { cardId: this.props.id, tasks: this.props.tasks })
+	        );
+	      }
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'card' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'card__title' },
+	          { className: 'card__title', onClick: function onClick() {
+	              _this2.setState({
+	                showDetails: !_this2.state.showDetails
+	              });
+	            } },
 	          this.props.title
 	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'card__details' },
-	          this.props.description,
-	          _react2.default.createElement(_KanbanCheckList2.default, { cardId: this.props.id, tasks: this.props.tasks })
-	        )
+	        cardDetails
 	      );
 	    }
 	  }]);
