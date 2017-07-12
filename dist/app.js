@@ -22404,12 +22404,36 @@
 	  function KanbanCard() {
 	    _classCallCheck(this, KanbanCard);
 
-	    return _possibleConstructorReturn(this, (KanbanCard.__proto__ || Object.getPrototypeOf(KanbanCard)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (KanbanCard.__proto__ || Object.getPrototypeOf(KanbanCard)).call(this));
+
+	    console.log('KanbanCard::constructor()');
+	    return _this;
 	  }
 
 	  _createClass(KanbanCard, [{
+	    key: 'getDefaultProps',
+	    value: function getDefaultProps() {
+	      console.log('KanbanCard::getDefaultProps()');
+	    }
+	  }, {
+	    key: 'getInitialState',
+	    value: function getInitialState() {
+	      console.log('KanbanCard::getInitialState()');
+	    }
+	  }, {
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      console.log('KanbanCard::componentWillMount()');
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      console.log('KanbanCard::componentDidMount()');
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      console.log('KanbanCard::render()');
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'card' },
@@ -22469,7 +22493,7 @@
 	  _createClass(KanbanCheckList, [{
 	    key: "render",
 	    value: function render() {
-	      console.log(this.props);
+	      //console.log(this.props);
 	      var tasks = this.props.tasks.map(function (task, index) {
 	        return _react2.default.createElement(
 	          "li",

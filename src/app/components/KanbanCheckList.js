@@ -2,7 +2,7 @@ import React from 'react';
 
 class KanbanCheckList extends React.Component {
   render() {
-    console.log(this.props);
+    //console.log(this.props);
   let tasks = this.props.tasks.map((task, index) => {
       return (
         <li className="checklist__task" key={index}>

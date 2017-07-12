@@ -2,7 +2,24 @@ import React from 'react';
 import CheckList from './KanbanCheckList';
 
 class KanbanCard extends React.Component {
+  constructor() {
+    super();
+    console.log('KanbanCard::constructor()');
+  }
+  getDefaultProps(){
+    console.log('KanbanCard::getDefaultProps()');
+  }
+  getInitialState(){
+    console.log('KanbanCard::getInitialState()');
+  }
+  componentWillMount(){
+    console.log('KanbanCard::componentWillMount()');
+  }
+  componentDidMount(){
+    console.log('KanbanCard::componentDidMount()');
+  }
   render() {
+    console.log('KanbanCard::render()');
     return (
       <div className="card">
         <div className="card__title">
